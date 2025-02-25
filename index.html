@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room: El Enigma del Cuello</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏥 Escape Room: El Enigma del Cuello 🏥</h1>
+
+        <!-- Registro del jugador -->
+        <div id="registro">
+            <p>Por favor, ingresa tu nombre para comenzar:</p>
+            <input type="text" id="nombreJugador" placeholder="Tu nombre">
+            <button onclick="iniciarJuego()">Comenzar</button>
+        </div>
+
+        <!-- Temporizador -->
+        <div id="temporizador" style="display: none;">
+            ⏳ Tiempo: <span id="tiempo">0</span> segundos
+        </div>
+
+        <!-- FASE 1: Triángulos del Cuello -->
+        <div class="challenge" id="faseTriangulos" style="display:none;">
+            <h2>🔑 Prueba 1: Diagnóstico Anatómico (Triángulos)</h2>
+            <p id="casoClinico"></p>
+
+            <div class="image-options">
+                <img id="opcion1" onclick="validarTriangulo(1)">
+                <img id="opcion2" onclick="validarTriangulo(2)">
+                <img id="opcion3" onclick="validarTriangulo(3)">
+                <img id="opcion4" onclick="validarTriangulo(4)">
+            </div>
+
+            <p id="feedbackTriangulos"></p>
+        </div>
+
+        <!-- FASE 2: Nervios del Cuello -->
+        <div class="challenge" id="faseNervios" style="display:none;">
+            <h2>🧠 Prueba 2: Identificación de Nervios</h2>
+            <p id="casoNervios"></p>
+
+            <div class="image-options">
+                <img id="nervio1" onclick="validarNervio(1)">
+                <img id="nervio2" onclick="validarNervio(2)">
+                <img id="nervio3" onclick="validarNervio(3)">
+                <img id="nervio4" onclick="validarNervio(4)">
+            </div>
+
+            <p id="feedbackNervios"></p>
+        </div>
+
+        <!-- FASE 3: Investigación + Validación con Contraseña -->
+        <div class="challenge" id="faseInvestigacion" style="display:none;">
+            <h2>🔍 Prueba 3: Investigación</h2>
+            <p id="pista"></p>
+            <p>Después de investigar, pídele a tu docente que ingrese la contraseña para continuar:</p>
+
+            <input type="text" id="contrasenaDocente" placeholder="Contraseña (Docente)">
+            <button onclick="validarContrasenaInvestigacion()">Validar Contraseña</button>
+            <p id="feedbackContrasena"></p>
+        </div>
+
+        <!-- FASE 4: Estructura Ecográfica + Validación Docente -->
+        <div class="challenge" id="faseEcografia" style="display:none;">
+            <h2>📡 Prueba 4: Estructura Ecográfica</h2>
+            <p id="instruccionEco"></p>
+            <p>Luego de identificar en la ecografía real la estructura asignada, pídele a tu docente que ingrese la contraseña para finalizar:</p>
+
+            <input type="text" id="contrasenaDocenteEco" placeholder="Contraseña (Docente)">
+            <button onclick="validarContrasenaEcografia()">Validar Contraseña</button>
+            <p id="feedbackContrasenaEco"></p>
+        </div>
+
+        <!-- RESULTADO FINAL -->
+        <div class="final-message" id="finalMessage" style="display:none;">
+            <h2>🎉 ¡Bien hecho, <span id="jugadorFinal"></span>! 🎉</h2>
+            <p>⏳ Tiempo total: <span id="tiempoFinal"></span> segundos</p>
+            <p>❌ Errores cometidos: <span id="erroresFinal"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
